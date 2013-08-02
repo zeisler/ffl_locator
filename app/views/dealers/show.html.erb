@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Licence type:</strong>
+  <%= @dealer.licence_type %>
+</p>
+
+<p>
+  <strong>Licence name:</strong>
+  <%= @dealer.licence_name %>
+</p>
+
+<p>
+  <strong>Business name:</strong>
+  <%= @dealer.business_name %>
+</p>
+
+<p>
+  <strong>Street:</strong>
+  <%= @dealer.street %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @dealer.state %>
+</p>
+
+<p>
+  <strong>Zip code:</strong>
+  <%= @dealer.zip_code %>
+</p>
+
+<p>
+  <strong>Lat:</strong>
+  <%= @dealer.lat %>
+</p>
+
+<p>
+  <strong>Long:</strong>
+  <%= @dealer.long %>
+</p>
+
+<%= link_to 'Edit', edit_dealer_path(@dealer) %> |
+<%= link_to 'Back', dealers_path %>

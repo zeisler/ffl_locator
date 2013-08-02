@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  licence_type: 1
+  licence_name: MyString
+  business_name: MyString
+  street: MyString
+  state: MyString
+  zip_code: 1
+  lat: 9.99
+  long: 9.99
+
+two:
+  licence_type: 1
+  licence_name: MyString
+  business_name: MyString
+  street: MyString
+  state: MyString
+  zip_code: 1
+  lat: 9.99
+  long: 9.99
