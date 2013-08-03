@@ -4,7 +4,7 @@ class DealersController < ApplicationController
   # GET /dealers
   # GET /dealers.json
   def index
-    @dealers = Dealer.all
+    @dealers = Dealer.page(params[:page])
   end
 
   # GET /dealers/1
@@ -69,6 +69,6 @@ class DealersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dealer_params
-      params.require(:dealer).permit(:licence_type, :licence_name, :business_name, :street, :state, :zip_code, :lat, :long)
+      params.require(:dealer).permit(:licence_type, :licence_name, :business_name, :street, :state, :zip_code, :lat, :lng, :page)
     end
 end

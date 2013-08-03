@@ -1,15 +1,16 @@
 class CreateDealers < ActiveRecord::Migration
   def change
     create_table :dealers do |t|
-      t.integer :licence_type
+      t.integer :licence_id
       t.string :licence_name
       t.string :business_name
+      t.string :city
       t.string :street
       t.string :state
       t.integer :zip_code
-      t.decimal :lat
-      t.decimal :long
-
+      t.integer :phone
+      t.decimal :lat, precision: 9, scale: 6
+      t.decimal :lng, precision: 9, scale: 6
       t.timestamps
     end
   end

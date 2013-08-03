@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,17 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130802172234) do
+ActiveRecord::Schema.define(version: 20130802214913) do
 
   create_table "dealers", force: true do |t|
-    t.integer  "licence_type"
+    t.integer  "licence_id"
     t.string   "licence_name"
     t.string   "business_name"
+    t.string   "city"
     t.string   "street"
     t.string   "state"
     t.integer  "zip_code"
-    t.decimal  "lat"
-    t.decimal  "long"
+    t.integer  "phone"
+    t.decimal  "lat",           precision: 9, scale: 6
+    t.decimal  "lng",           precision: 9, scale: 6
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "licences", force: true do |t|
+    t.string   "usage"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

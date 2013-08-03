@@ -8,7 +8,7 @@ one:
   state: MyString
   zip_code: 1
   lat: 9.99
-  long: 9.99
+  lng: 9.99
 
 two:
   licence_type: 1
@@ -18,4 +18,4 @@ two:
   state: MyString
   zip_code: 1
   lat: 9.99
-  long: 9.99
+  lng: 9.99
