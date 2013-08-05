@@ -46,4 +46,10 @@ class DealersControllerTest < ActionController::TestCase
 
     assert_redirected_to dealers_path
   end
+
+  test "should get nearest point with x radius" do
+    get :find_near, coordinates: "45, -122", json
+    assert_response :success
+
+  end
 end
