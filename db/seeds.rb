@@ -1,4 +1,35 @@
 require 'csv'
+
+def column_types (row)
+  row.each do |column, value|
+    case column
+      when "licence_id"
+        row["licence_id"] = value.to_i
+      when "licence_name"
+        # row["licence_name"] = value.to_s
+      when "business_name"
+        # row["business_name"] = value.to_s
+      when "street"
+        # row["street"] = value.to_s
+      when "city"
+        # row["city"] = value.to_s
+      when "state"
+        # row["state"] = value.to_s
+      when "zip_code"
+        row["zip_code"] = value.to_i
+      when "phone"
+        row["phone"] = value.to_i
+      when "lat"
+        row["lat"] = value.to_f
+      when "lng"
+        row["lng"] = value.to_f
+    end
+  end
+  return row
+end
+
+
+
 blocks = []
 index = 0
 keys = []
@@ -12,14 +43,15 @@ CSV.foreach("#{PATH}/db/ffl_dealers.csv") do |row|
   else
     keys.each_with_index do |key, index|
       if row[index] == nil
-        row[index] = ""
+        row[index] = "null"
       end
       row[index] = row[index].gsub("\\","")
       row[index] = row[index].gsub("\"","")
 
       row_with_keys[key] = row[index]
     end
-    blocks << row_with_keys unless row_with_keys["lat"] == "0"
+    row_with_keys = column_types(row_with_keys)
+    blocks << row_with_keys unless row_with_keys["lat"] == 0.0
   end
   index += 1
 end
@@ -32,7 +64,9 @@ block_count.times do |i|
      1000.times do |trans_i|
        unless blocks[trans_i + current].nil?
          row = blocks[trans_i + current]
-         Dealer.connection.execute ["INSERT INTO Dealers (?) values (?)", row.keys.map(&:inspect).join(', ').gsub('"', ''), row.values.map(&:inspect).join(', ')]
+         columns = ActiveRecord::Base.sanitize(row.keys.map(&:inspect).join(', ').gsub('"', '')).gsub("'", '')
+         values = ActiveRecord::Base.sanitize(row.values.map(&:inspect).join(', ')).gsub("'", '').gsub('"', "'")
+         Dealer.connection.execute("INSERT INTO Dealers (#{columns}) VALUES (#{values})")
        end
      end
    end
