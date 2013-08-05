@@ -1,16 +1,19 @@
 class Dealer < ActiveRecord::Base
   belongs_to :licence
+  attr_accessor :distance
 
-  def self.within(radius, lat, lng)
+  def self.within(radius, lat, lng, limit)
+    math = "( 3959 * acos( cos( radians( #{ActiveRecord::Base.sanitize lat}) ) * cos( radians( lat ) ) * cos( radians( lng ) - radians( #{ActiveRecord::Base.sanitize lng}) ) + sin( radians( #{ActiveRecord::Base.sanitize lat}) ) * sin( radians( lat ) ) ) )"
     results_raw = ActiveRecord::Base.connection.execute(
-      "SELECT id,
-        ( 3959 * acos( cos( radians(45.53299) ) * cos( radians( lat ) ) * cos( radians( lng ) - radians(-122.6894) ) + sin( radians(45.53299) ) * sin( radians( lat ) ) ) )
+      "SELECT id, #{math}
       AS distance
       from dealers
-      where ( 3959 * acos( cos( radians(45.53299) ) * cos( radians( lat ) ) * cos( radians( lng ) - radians(-122.6894) ) + sin( radians(45.53299) ) * sin( radians( lat ) ) ) ) < #{ActiveRecord::Base.sanitize radius}
-      ORDER BY distance limit 10;")
+      where #{math}  < #{ActiveRecord::Base.sanitize radius}
+      ORDER BY distance limit  #{ActiveRecord::Base.sanitize limit};")
     results_raw.map do |row|
-       {Dealer: Dealer.find_by_id(row["id"]), distance: row["distance"]}
+      dealer = Dealer.find_by_id(row["id"])
+      dealer.distance = row["distance"]
+      dealer
     end
 
 

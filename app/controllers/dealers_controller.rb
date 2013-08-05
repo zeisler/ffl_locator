@@ -61,6 +61,17 @@ class DealersController < ApplicationController
     end
   end
 
+  def find_near
+    if params[:radius].blank?
+      params[:radius] = 25
+    end
+    if params[:limit].blank?
+      params[:limit] = 10
+    end
+    @lat, @lng = params[:coordinates].split(",")
+    @dealers = Dealer.within(params[:radius], @lat, @lng, params[:limit])
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_dealer
@@ -69,6 +80,6 @@ class DealersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dealer_params
-      params.require(:dealer).permit(:licence_type, :licence_name, :business_name, :street, :state, :zip_code, :lat, :lng, :page)
+      params.require(:dealer).permit(:licence_type, :licence_name, :business_name, :street, :state, :zip_code, :lat, :lng, :page, :radius, :limit)
     end
 end
