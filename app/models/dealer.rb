@@ -15,8 +15,14 @@ class Dealer < ActiveRecord::Base
       dealer.distance = row["distance"]
       dealer
     end
+  end
 
-
+  def business_name
+    if self[:business_name] == "null"
+      return self[:licence_name]
+    else
+      return self[:business_name]
+    end
   end
 
 end
