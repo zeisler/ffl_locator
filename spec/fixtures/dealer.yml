@@ -1,0 +1,10 @@
+one:
+  licence_id: 1
+  licence_name: "Bob Smith"
+  business_name: "Gun Shop"
+  street: "12345 Arms ave"
+  state: "OR"
+  zip_code: 97335
+  phone: 214748
+  lat:  44.0
+  lng: -122.0

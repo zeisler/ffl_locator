@@ -13,4 +13,5 @@ describe DealersController do
       expect(response).to render_template("find_near")
     end
   end
+
 end
