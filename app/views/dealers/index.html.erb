@@ -1,4 +1,15 @@
 <h1>Listing dealers</h1>
+<div class="near_location">
+  <%- if @coordinates.nil? %>
+<script>
+  getGeoLocation();
+</script>
+<%- else %>
+  <form class="server" action="/dealers/near/<%= @coordinates %>">
+    <button class="btn">Find Dealers near you</button>
+  </form>
+<%- end %>
+</div>
 
 <table class="table table-striped">
   <thead>
