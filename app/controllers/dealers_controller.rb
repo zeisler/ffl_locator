@@ -5,6 +5,8 @@ class DealersController < ApplicationController
   # GET /dealers.json
   def index
     @dealers = Dealer.page(params[:page])
+    @coordinates = cookies[:coordinates]
+    puts @coordinates
   end
 
   # GET /dealers/1
@@ -68,7 +70,7 @@ class DealersController < ApplicationController
     if params[:limit].blank?
       params[:limit] = 10
     end
-    @lat, @lng = params[:coordinates].split(",")
+    @lat, @lng = dealer_params[:coordinates].split(",")
     @dealers = Dealer.within(params[:radius], @lat, @lng, params[:limit])
   end
 
@@ -80,6 +82,6 @@ class DealersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dealer_params
-      params.require(:dealer).permit(:licence_id, :licence_name, :business_name, :street, :state, :zip_code, :lat, :lng, :page, :radius, :limit)
+      params.permit(:licence_id, :licence_name, :business_name, :street, :state, :zip_code, :coordinates, :page, :radius, :limit)
     end
 end
