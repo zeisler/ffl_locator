@@ -41,7 +41,7 @@ $.fn.storeLocator = function(options) {
       'maxDistanceID': 'maxdistance',
       'fullMapStart': false,
       'noForm': false,
-      'loading': false,
+      'loading': true,
       'loadingDiv': 'loading-map',
       'featuredLocations': false,
       'infowindowTemplatePath': 'templates/infowindow-description.html',
