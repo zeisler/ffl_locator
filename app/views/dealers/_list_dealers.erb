@@ -1,0 +1,44 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Licence type</th>
+      <th>Licence name</th>
+      <th>Business name</th>
+      <th>Street</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zip code</th>
+      <th>Phone</th>
+      <th>Lat</th>
+      <th>lng</th>
+      <th>Distance (Miles)</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody >
+    <% @dealers.each do |dealer| %>
+      <tr>
+        <td><%= dealer.licence_id %></a></td>
+        <td><%= dealer.licence_name %></td>
+        <td><%= dealer.business_name %></td>
+        <td><%= dealer.street %></td>
+        <td><%= dealer.city %></td>
+
+        <td><%= dealer.state %></td>
+
+        <td><%= number_with_precision(dealer.zip_code , precision: 0) %></td>
+        <td><%= number_to_phone dealer.phone, area_code: true %></td>
+
+        <td><%= number_with_precision(dealer.lat , precision: 4)%></td>
+        <td><%= number_with_precision(dealer.lng , precision: 4)%></td>
+        <td><%= number_with_precision(dealer.distance, precision: 2) %></td>
+        <td><%= link_to 'Show', dealer %></td>
+        <td><%= link_to 'Edit', edit_dealer_path(dealer) %></td>
+        <td><%= link_to 'Destroy', dealer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
