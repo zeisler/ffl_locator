@@ -11,11 +11,13 @@ describe "Dealers" do
   end
 
   context "index" do
-    #  it "checks cookie then displays button", js:true do
-    #   cookie_string = '45.532988599999996%2C-122.68938999999997'
-    #   page.driver.set_cookie "coordinates" => cookie_string
-    #   visit '/dealers/'
-    #   page.should have_selector('.server')
-    # end
+     it "server checks for cookie and displays button", js:true do
+      cookie_string = '45.532988599999996%2C-122.68938999999997'
+      browser = Capybara.current_session.driver.browser
+      visit '/dealers/'
+      browser.manage.add_cookie name: "coordinates", value: cookie_string
+      visit '/dealers/'
+      page.should have_selector('.server')
+    end
   end
 end
