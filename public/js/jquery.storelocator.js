@@ -466,7 +466,7 @@ $.fn.storeLocator = function(options) {
             			'address2': $(this).attr('address2'),
             			'city': $(this).attr('city'),
             			'state': $(this).attr('state'),
-            			'postal': $(this).attr('postal'),
+            			'zip_code': $(this).attr('zip_code'),
             			'country': $(this).attr('country'),
             			'phone': $(this).attr('phone'),
             			'email': $(this).attr('email'),
