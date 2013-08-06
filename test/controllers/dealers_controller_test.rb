@@ -18,7 +18,7 @@ class DealersControllerTest < ActionController::TestCase
 
   test "should create dealer" do
     assert_difference('Dealer.count') do
-      post :create, dealer: { business_name: @dealer.business_name, lat: @dealer.lat, licence_name: @dealer.licence_name, licence_id: @dealer.licence_id, lng: @dealer.lng, state: @dealer.state, street: @dealer.street, zip_code: @dealer.zip_code }
+      post :create, dealer: { business_name: @dealer.business_name, lat: @dealer.lat, license_name: @dealer.license_name, license_id: @dealer.license_id, lng: @dealer.lng, state: @dealer.state, street: @dealer.street, zip_code: @dealer.zip_code }
     end
 
     assert_redirected_to dealer_path(assigns(:dealer))
@@ -35,7 +35,7 @@ class DealersControllerTest < ActionController::TestCase
   end
 
   test "should update dealer" do
-    patch :update, id: @dealer, dealer: { business_name: @dealer.business_name, lat: @dealer.lat, licence_name: @dealer.licence_name, licence_id: @dealer.licence_id, lng: @dealer.lng, state: @dealer.state, street: @dealer.street, zip_code: @dealer.zip_code }
+    patch :update, id: @dealer, dealer: { business_name: @dealer.business_name, lat: @dealer.lat, license_name: @dealer.license_name, license_id: @dealer.license_id, lng: @dealer.lng, state: @dealer.state, street: @dealer.street, zip_code: @dealer.zip_code }
     assert_redirected_to dealer_path(assigns(:dealer))
   end
 

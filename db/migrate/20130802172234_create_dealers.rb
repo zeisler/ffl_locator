@@ -1,8 +1,8 @@
 class CreateDealers < ActiveRecord::Migration
   def change
     create_table :dealers do |t|
-      t.integer :licence_id
-      t.string :licence_name
+      t.integer :license_id
+      t.string :license_name
       t.string :business_name
       t.string :city
       t.string :street

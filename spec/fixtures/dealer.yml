@@ -1,6 +1,6 @@
 one:
-  licence_id: 1
-  licence_name: "Bob Smith"
+  license_id: 1
+  license_name: "Bob Smith"
   business_name: "Gun Shop"
   street: "12345 Arms ave"
   state: "OR"

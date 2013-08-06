@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(version: 20130802214913) do
   enable_extension "plpgsql"
 
   create_table "dealers", force: true do |t|
-    t.integer  "licence_id"
-    t.string   "licence_name"
+    t.integer  "license_id"
+    t.string   "license_name"
     t.string   "business_name"
     t.string   "city"
     t.string   "street"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20130802214913) do
     t.datetime "updated_at"
   end
 
-  create_table "licences", force: true do |t|
+  create_table "licenses", force: true do |t|
     t.text     "usage"
     t.datetime "created_at"
     t.datetime "updated_at"

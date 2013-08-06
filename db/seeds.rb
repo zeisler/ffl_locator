@@ -3,10 +3,10 @@ require 'csv'
 def column_types (row)
   row.each do |column, value|
     case column
-      when "licence_id"
-        row["licence_id"] = value.to_i
-      when "licence_name"
-        # row["licence_name"] = value.to_s
+      when "license_id"
+        row["license_id"] = value.to_i
+      when "license_name"
+        # row["license_name"] = value.to_s
       when "business_name"
         # row["business_name"] = value.to_s
       when "street"

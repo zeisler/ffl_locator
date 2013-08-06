@@ -1,8 +1,8 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  licence_id: 1
-  licence_name: MyString
+  license_id: 1
+  license_name: MyString
   business_name: MyString
   street: MyString
   state: MyString
@@ -11,8 +11,8 @@ one:
   lng: 9.99
 
 two:
-  licence_id: 1
-  licence_name: MyString
+  license_id: 1
+  license_name: MyString
   business_name: MyString
   street: MyString
   state: MyString

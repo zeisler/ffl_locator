@@ -1,5 +1,5 @@
 class Dealer < ActiveRecord::Base
-  belongs_to :licence
+  belongs_to :license
   attr_accessor :distance
 
   def self.within(radius, lat, lng, limit)
@@ -19,7 +19,7 @@ class Dealer < ActiveRecord::Base
 
   def business_name
     if self[:business_name] == "null"
-      return self[:licence_name]
+      return self[:license_name]
     else
       return self[:business_name]
     end
