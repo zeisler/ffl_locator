@@ -1,9 +1,11 @@
 source 'https://rubygems.org'
+ruby '2.0.0'
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
   gem 'capybara'
   gem 'selenium-webdriver'
 end
+gem 'rails_12factor', group: :production
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
