@@ -11,41 +11,7 @@
 <%- end %>
 </div>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Licence type</th>
-      <th>Licence name</th>
-      <th>Business name</th>
-      <th>Street</th>
-      <th>State</th>
-      <th>Zip code</th>
-      <th>Lat</th>
-      <th>lng</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody >
-    <% @dealers.each do |dealer| %>
-      <tr>
-        <td><%= dealer.licence_id %></a></td>
-        <td><%= dealer.licence_name %></td>
-        <td><%= dealer.business_name %></td>
-        <td><%= dealer.street %></td>
-        <td><%= dealer.state %></td>
-        <td><%= dealer.zip_code %></td>
-        <td><%= dealer.lat %></td>
-        <td><%= dealer.lng %></td>
-        <td><%= link_to 'Show', dealer %></td>
-        <td><%= link_to 'Edit', edit_dealer_path(dealer) %></td>
-        <td><%= link_to 'Destroy', dealer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render 'list_dealers' %>
 
 <br>
 

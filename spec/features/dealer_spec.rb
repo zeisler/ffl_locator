@@ -11,7 +11,7 @@ describe "Dealers" do
   end
 
   context "index" do
-     it "server checks for cookie and displays button", js:true do
+     it "server checks for cookie and displays button to find nearest dealer", js:true do
       cookie_string = '45.532988599999996%2C-122.68938999999997'
       browser = Capybara.current_session.driver.browser
       visit '/dealers/'

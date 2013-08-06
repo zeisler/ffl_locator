@@ -1,7 +1,8 @@
 FflLocator::Application.routes.draw do
 
   # get 'dealers/coordinates/:lat/:lng(/radius/:radius/:limit)', to: "dealers#find_near"
-  get '/dealers/near/:coordinates(/radius/:radius)(/limit/:limit)', :constraints => {coordinates: /[^\/]+/}, :controller => 'dealers', :action => 'find_near'
+  get '/dealers/near/:coordinates(/radius/:radius)(/limit/:limit)(/json/:json)', :constraints => {coordinates: /([^\/]+)/}, :controller => 'dealers', :action => 'find_near'
+  # get '/dealers/near/:lat/:lng(/radius/:radius)(/limit/:limit)',  :controller => 'dealers', :action => 'find_near'
   resources :dealers
 
   # The priority is based upon order of creation: first created -> highest priority.

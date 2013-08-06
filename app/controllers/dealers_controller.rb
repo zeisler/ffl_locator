@@ -63,6 +63,10 @@ class DealersController < ApplicationController
     end
   end
 
+  def near
+
+  end
+
   def find_near
     if params[:radius].blank?
       params[:radius] = 25
@@ -70,8 +74,11 @@ class DealersController < ApplicationController
     if params[:limit].blank?
       params[:limit] = 10
     end
-    @lat, @lng = dealer_params[:coordinates].split(",")
+    @lat, @lng = params[:coordinates].split(",")
     @dealers = Dealer.within(params[:radius], @lat, @lng, params[:limit])
+    if params[:json]
+     render action: "find_near.json.jbuilder"
+    end
   end
 
   private
