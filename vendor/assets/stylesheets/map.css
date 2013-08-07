@@ -1,8 +1,6 @@
 #store-locator-container
 {
-	float: left;
-	margin-left: 20px;
-	width: 875px;
+
 	font: normal 12px Arial, Helvetica, sans-serif;
 	color: #333;
 }
@@ -52,7 +50,7 @@
 
 #loc-list
 {
-	float: left; 
+	float: left;
 	width: 240px;
 	height: 530px;
 	overflow: auto;
@@ -166,9 +164,9 @@
 
 #map
 {
-	float: left; 
-	width: 635px; 
-	height: 530px; 
+	float: left;
+	width: 635px;
+	height: 530px;
 }
 
 /* Modal window */

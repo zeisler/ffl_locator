@@ -13,4 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require handlebars
+//= require geocode
+//= require jquery.storelocator
 //= require_tree .

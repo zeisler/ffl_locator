@@ -1,21 +1,28 @@
-<h1>Listing dealers</h1>
-<div class="near_location">
-  <%- if @coordinates.nil? %>
-<script>
-  getGeoLocation();
-</script>
-<%- else %>
-  <form class="server" action="/dealers/near/<%= @coordinates %>">
-    <button class="btn">Find Dealers near you</button>
-  </form>
-<%- end %>
-</div>
+ <div id="store-locator-container" class="span8 offset2">
+      <div id="page-header">
 
-<%= render 'list_dealers' %>
+      <div id="form-container" >
+        <form id="user-location" method="post" action="#" >
+          <fieldset>
+              <label for="address">Enter Address or Zip Code:</label>
+              <input type="text" id="address" name="address" />
 
-<br>
+            <input class='btn' id="submit" name="submit" value="Submit"/>
+          <fieldset>
+        </form>
+      </div>
 
-<%= link_to 'New Dealer', new_dealer_path %>
+      <div id="map-container">
+        <div id="loc-list">
+            <ul id="list"></ul>
+        </div>
+        <div id="map"></div>
+      </div>
+    </div>
 
-
- <%= paginate @dealers %>
+    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+      <script>
+        $(function() {
+          $('#map-container').storeLocator();
+        });
+      </script>

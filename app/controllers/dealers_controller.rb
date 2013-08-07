@@ -3,7 +3,7 @@ class DealersController < ApplicationController
 
   # GET /dealers
   # GET /dealers.json
-  def index
+  def directory
     @dealers = Dealer.page(params[:page])
     @coordinates = cookies[:coordinates]
     puts @coordinates

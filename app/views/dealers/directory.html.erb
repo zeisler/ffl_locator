@@ -1,0 +1,21 @@
+<h1>Listing dealers</h1>
+<div class="near_location">
+  <%- if @coordinates.nil? %>
+<script>
+  getGeoLocation();
+</script>
+<%- else %>
+  <form class="server" action="/dealers/near/<%= @coordinates %>">
+    <button class="btn">Find Dealers near you</button>
+  </form>
+<%- end %>
+</div>
+
+<%= render 'list_dealers' %>
+
+<br>
+
+<%= link_to 'New Dealer', new_dealer_path %>
+
+
+ <%= paginate @dealers %>
