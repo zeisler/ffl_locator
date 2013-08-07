@@ -3,8 +3,9 @@ one:
   license_name: "Bob Smith"
   business_name: "Gun Shop"
   street: "12345 Arms ave"
+  city: "Portland"
   state: "OR"
   zip_code: 97335
   phone: 214748
-  lat:  44.0
-  lng: -122.0
+  lat: 45.532988599999996
+  lng: -122.68938999999997
