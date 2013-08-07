@@ -69,10 +69,10 @@ class DealersController < ApplicationController
 
   def find_near
     if params[:radius].blank?
-      params[:radius] = 25
+      params[:radius] = 45
     end
     if params[:limit].blank?
-      params[:limit] = 10
+      params[:limit] = 25
     end
     @lat, @lng = params[:coordinates].split(",")
     @dealers = Dealer.within(params[:radius], @lat, @lng, params[:limit])
